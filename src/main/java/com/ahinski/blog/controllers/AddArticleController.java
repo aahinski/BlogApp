@@ -33,7 +33,6 @@ public class AddArticleController {
                              @RequestParam String title,
                              @RequestParam String text) {
         User user = userRepository.findByUsername(authentication.getName());
-        System.out.println(user.getId());
         model.addAttribute("current-user", user);
         Article article = new Article(title, text, user);
         articleRepository.saveAndFlush(article);

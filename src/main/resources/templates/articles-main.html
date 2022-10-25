@@ -9,10 +9,10 @@
 <body>
 <header th:insert="blocks/header :: header"></header>
 
-<div class="container mt-5">
+<div class="container mt-9">
     <h1>Articles</h1>
-    <div th:each="el : ${articles}" class="alert alert-info mt-2">
-        <h3 th:text="${el.title}"/>
+    <div th:each="el : ${articles}" class="alert alert-info mt-5">
+        <h8 th:text="${el.title}"/>
         <a class="btn btn-warning" th:href="'/articles/'+${el.id}" >Read the article</a>
     </div>
 

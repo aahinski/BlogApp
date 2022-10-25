@@ -1,12 +1,13 @@
 package com.ahinski.blog.models;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Table(name = "comment")
 public class Comment {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String text;
 
@@ -57,5 +58,18 @@ public class Comment {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Comment comment = (Comment) o;
+        return Objects.equals(id, comment.id) && Objects.equals(text, comment.text) && Objects.equals(article, comment.article) && Objects.equals(user, comment.user);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, text, article, user);
     }
 }
