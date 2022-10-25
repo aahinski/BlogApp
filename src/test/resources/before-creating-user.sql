@@ -1,6 +1,5 @@
-DELETE FROM user_role;
-DELETE FROM usr;
+INSERT INTO usr(username, password, active) VALUE ('bobby', 'fisher', true);
 
-INSERT INTO usr(id, username, password, active) VALUE (1, 'bobby', 'fisher', true);
+SELECT @user := id FROM usr WHERE username='bobby';
 
-INSERT INTO user_role(user_id, roles) VALUE (1, 'USER');
+INSERT INTO user_role(user_id, roles) VALUE (@user, 'USER');

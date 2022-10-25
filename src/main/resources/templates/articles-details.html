@@ -13,7 +13,7 @@
 <div class="container mt-5">
     <div th:each="el : ${article}" class="alert alert-info mt-2">
         <h2 th:text="${el.getTitle()}"/>
-        <h6 th:text="${el.getText()}"/>
+        <span style="white-space: pre-line" th:text="${el.getText()}"></span>
     </div>
 </div>
 
@@ -28,7 +28,7 @@
 
 <div class="container mt-5">
     <div th:each="el : ${comments}" class="alert alert-info mt-2">
-        <h6 th:text="${el.text}"/>
+        <span style="white-space: pre-line" th:text="${el.getText()}"></span>
     </div>
 </div>
 

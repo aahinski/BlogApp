@@ -33,7 +33,6 @@ public class AddArticleController {
                              @RequestParam String title,
                              @RequestParam String text) {
         User user = userRepository.findByUsername(authentication.getName());
-        model.addAttribute("current-user", user);
         Article article = new Article(title, text, user);
         articleRepository.saveAndFlush(article);
         return "redirect:/articles";
